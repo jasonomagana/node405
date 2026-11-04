@@ -1,0 +1,799 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Utility Classes */
+
+:root {
+    --container-lg: 1200px;
+    --container: 1100px;
+    --container-sm: 900px;
+    --primary-color: #0b1b32;
+}
+
+.container-lg {
+    max-width: var(--container-lg);
+    margin: 0 auto;
+}
+
+.container {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.container-sm {
+    max-width: var(--container-sm);
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+html,
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Navbar */
+
+.navbar {
+    background: linear-gradient(
+        135deg,
+        #050B18 0%,
+        #0B1B32 50%,
+        #102B46 100%
+    );
+    padding: 0.5rem 2.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    overflow: visible;
+}
+
+.navbar .logo {
+    width: 250px
+}
+
+.navbar .navbar-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .main-menu-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    color: azure;
+    
+}
+
+.navbar .main-menu-item a {
+    font-weight: 600;
+    transition: color 0.3s ease-in, transform 0.3s ease;
+}
+
+.navbar .main-menu-item a:hover {
+    color: #22d3ee;
+}
+
+.menu-close-icon {
+    display: none;
+}
+
+/* Mobile Menu */
+
+.navbar .mobile-menu {
+    display: none;
+}
+
+.navbar .mobile-menu-toggle {
+    font-size: 1.8rem;
+    color: #22d3ee;
+    cursor: pointer;
+}
+
+.navbar .mobile-menu-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: var(--primary-color);
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.navbar .mobile-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.navbar .mobile-menu-item a {
+    color: white;
+    font-weight: 600;
+}
+
+/* Hero */
+
+.hero {
+    padding: 8rem 2rem 4rem;
+    background: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+
+.hero-eyebrow {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #22d3ee;
+    margin-bottom: 1rem;
+}
+
+.hero-heading h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-description {
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hero-buttons a {
+    padding: 0.5rem 1rem;
+    background: #22d3ee;
+    border-radius: 10px;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* IPv4 Button */
+.hero-buttons .primary:hover {
+    background-color: #67e8f9;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.3);
+}
+
+/* IPv6 Button */
+.hero-buttons .secondary:hover {
+    background-color: #22d3ee;
+    color: #050b18;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.2);
+}
+
+/* MAC Button */
+.hero-buttons .tertiary:hover {
+    background-color: #164e63;
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.15);
+}
+
+/* IPv4 Binary Converter */
+
+.ipv4-section {
+    padding: 4rem 3rem;
+    background: var(--primary-color);
+    color: #fff;
+    scroll-margin-top: 80px;
+    border-top: 2px solid #fff;
+}
+
+#ipv4-results {
+    display: none;
+    margin-top: 3rem;
+    scroll-margin-top: 100px;
+}
+
+/* IPv4 Heading and Description */
+
+.ipv4-heading {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.ipv4-heading h2 {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.ipv4-description {
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+/* IPv4 Converter Form */
+
+.binary-converter {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #102b46;
+    border: 1px solid #1e405c;
+    border-radius: 15px;
+}
+
+.form-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.form-label label {
+    font-weight: 600;
+    color: #fff;
+}
+
+.form-label input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: #071426;
+    border: 1px solid #31516b;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-label input:focus {
+    border-color: #22d3ee;
+}
+
+/* IPv4 Form Buttons */
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.form-buttons button {
+    padding: 0.85rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.convert-btn {
+    background: #22d3ee;
+    color: #071426;
+}
+
+.convert-btn:hover {
+    background: #67e8f9;
+    transform: translateY(-2px);
+}
+
+.reset-btn {
+    background: #1e405c;
+    color: #fff;
+}
+
+.reset-btn:hover {
+    background: #31516b;
+    transform: translateY(-2px);
+}
+
+/* IPv4 Result Headings */
+.ipv4-result-heading {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.ipv4-result-heading h3 {
+    font-size: 2rem;
+    color: #22d3ee;
+}
+
+.octet-section,
+.binary-section,
+.binary-result-section {
+    margin-bottom: 3rem;
+}
+
+.octet-section h3,
+.binary-section h3,
+.binary-result-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.octet-section > p,
+.binary-section > p {
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+/* Octet Breakdown Cards */
+
+#octet-breakdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.octet-card {
+    background: #102b46;
+    border: 1px solid #1e405c;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.octet-card h4 {
+    color: #22d3ee;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.octet-card p {
+    margin-bottom: 0.5rem;
+    overflow-wrap: anywhere;
+}
+
+.octet-card p:last-child {
+    color: #67e8f9;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+/* IPv4 Binary Conversion Tables */
+
+#binary-tables {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.conversion-table-card {
+    background: #102b46;
+    border: 1px solid #1e405c;
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.conversion-table-card h4 {
+    color: #22d3ee;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.conversion-table-card table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: monospace;
+}
+
+.conversion-table-card th,
+.conversion-table-card td {
+    padding: 0.75rem 0.5rem;
+    border: 1px solid #31516b;
+    min-width: 42px;
+}
+
+.conversion-table-card th {
+    background: #173b57;
+    color: #67e8f9;
+}
+
+.conversion-table-card td {
+    background: #071426;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.conversion-table-card p {
+    margin-top: 1rem;
+    color: #67e8f9;
+    font-family: monospace;
+    overflow-wrap: anywhere;
+}
+
+/* Final Binary IPv4 Address */
+
+#final-binary-result {
+    background: #071426;
+    border: 1px solid #22d3ee;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    color: #67e8f9;
+    font-family: monospace;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+}
+
+
+/* IPv6 Section */
+
+.ipv6-section {
+    padding: 4rem 3rem;
+    background: var(--primary-color);
+    color: #fff;
+    scroll-margin-top: 80px;
+    border-top: 2px solid #fff;
+}
+
+.ipv6-heading,
+.ipv6-result-heading {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.ipv6-heading h2 {
+    font-size: 2.5rem;
+}
+
+.ipv6-description {
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+#ipv6-results {
+    display: none;
+    margin-top: 3rem;
+    scroll-margin-top: 100px;
+}
+
+.ipv6-result-heading h3 {
+    font-size: 2rem;
+    color: #22d3ee;
+}
+
+#hextet-breakdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+#ipv6-binary-tables {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+#ipv6-final-binary-result {
+    background: #071426;
+    border: 1px solid #22d3ee;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    color: #67e8f9;
+    font-family: monospace;
+    overflow-wrap: anywhere;
+}
+
+/* MAC Address Section */
+
+.mac-section {
+    padding: 4rem 3rem;
+    background: var(--primary-color);
+    color: #fff;
+    border-top: 2px solid #fff;
+    scroll-margin-top: 80px;
+}
+
+.mac-heading,
+.mac-result-heading {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.mac-heading h2 {
+    font-size: 2.5rem;
+}
+
+.mac-description {
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+#mac-results {
+    display: none;
+    margin-top: 3rem;
+    scroll-margin-top: 100px;
+}
+
+.mac-result-heading h3 {
+    font-size: 2rem;
+    color: #22d3ee;
+}
+
+#mac-byte-breakdown {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+#mac-binary-tables {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+#mac-final-binary-result {
+    background: #071426;
+    border: 1px solid #22d3ee;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    color: #67e8f9;
+    font-family: monospace;
+    font-size: 1.1rem;
+    overflow-wrap: anywhere;
+}
+
+#mac-structure {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+/* Footer */
+
+.footer {
+    background: #071426;
+    color: #fff;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid #1e405c;
+}
+
+.footer .container-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer .author h5 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.footer .author p,
+.footer .website-link p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #22d3ee;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #67e8f9;
+    text-decoration: underline;
+}
+
+/* Tablets */
+
+@media (max-width: 992px) {
+    #octet-breakdown,
+    #binary-tables {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #hextet-breakdown,
+    #ipv6-binary-tables {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile Media Queries */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar .logo {
+        width: 180px;
+    }
+
+    .navbar .main-menu-items {
+        display: none;
+    }
+
+    .navbar .mobile-menu {
+        display: block;
+    }
+
+    /* Hero */
+
+    .hero {
+        min-height: 100vh;
+        height: auto;
+        padding: 6rem 1.5rem 4rem;
+    }
+
+    .hero .container-lg {
+        width: 100%;
+    }
+
+    .hero-eyebrow {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-heading h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-description {
+        max-width: 550px;
+        margin: 0 auto 2rem;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .hero-buttons a {
+        padding: 0.75rem 1.25rem;
+        text-align: center;
+    }
+
+    #mac-byte-breakdown,
+    #mac-binary-tables,
+    #mac-structure {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .ipv4-section {
+        padding: 3rem 1rem;
+    }
+
+    #octet-breakdown,
+    #binary-tables {
+        grid-template-columns: 1fr;
+    }
+
+    .conversion-table-card {
+        padding: 1rem;
+    }
+
+    #final-binary-result {
+        font-size: 1rem;
+        letter-spacing: 0;
+    }
+
+    .ipv4-heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .binary-converter {
+        padding: 1.5rem;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .form-buttons button {
+        width: 100%;
+    }
+
+    .ipv6-section {
+        padding: 3rem 1rem;
+    }
+
+    .ipv6-heading h2 {
+        font-size: 1.8rem;
+    }
+
+    #hextet-breakdown,
+    #ipv6-binary-tables {
+        grid-template-columns: 1fr;
+    }
+
+    .mac-section {
+        padding: 3rem 1rem;
+    }
+
+    .mac-heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .footer .container-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 6rem 1.25rem 3rem;
+    }
+
+    .hero-eyebrow {
+        font-size: 0.7rem;
+        line-height: 1.6;
+    }
+
+    .hero-heading h1 {
+        font-size: 2rem;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.75rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+    }
+
+    .hero-buttons a {
+        display: block;
+        width: 100%;
+        padding: 0.85rem 1rem;
+        text-align: center;
+    }
+}

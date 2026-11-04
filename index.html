@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>CIS 210 - Node405</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container-lg container navbar-flex">
+            <a href="/index.html" class="logo">
+                <img src="/images/logo.jpg" alt="Logo">
+            </a>
+        <div class="main-menu-items">
+            <ul class="main-menu-list">
+                <li class="main-menu-item"><a href="/index.html">Home</a></li>
+                <li class="main-menu-item"><a href="#ipv4">IPv4 Converter</a></li>
+                <li class="main-menu-item"><a href="#ipv6">IPv6 Converter</a></li>
+                <li class="main-menu-item"><a href="#mac">MAC Converter</a></li>
+            </ul>
+        </div>
+        <div class="mobile-menu">
+            <div class="mobile-menu-toggle">
+                <i class="fa-bars fa-solid menu-open-icon"></i>
+                <i class="fa-solid fa-xmark menu-close-icon"></i>
+            </div>
+            <div class="mobile-menu-items">
+                <ul class="mobile-menu-list">
+                    <li class="mobile-menu-item"><a href="/index.html">Home</a></li>
+                    <li class="mobile-menu-item"><a href="#ipv4">IPv4 Converter</a></li>
+                    <li class="mobile-menu-item"><a href="#ipv6">IPv6 Converter</a></li>
+                    <li class="mobile-menu-item"><a href="#mac">MAC Converter</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="container-lg">
+            <div class="hero-eyebrow">
+                <p>Welcome To Node405 - Inspired By ELAC's E7 - 405</p>
+            </div>
+            <div class="hero-heading">
+                <h1>Decode The Language of Networks</h1>
+            </div>
+            <div class="hero-description">
+                <p>Understand IPv4, IPv6, and MAC addresses 
+                   through interactive conversions and step-by-step explanations.
+                </p>
+            </div>
+            <div class="hero-buttons">
+                <a href="#ipv4" class="ipv4 primary">IPv4 Converter</a>
+                <a href="#ipv6" class="ipv6 secondary">IPv6 Converter</a>
+                <a href="#mac" class="mac tertiary">MAC Converter</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- IPv4 Coversion Section -->
+    <section id="ipv4" class="ipv4-section">
+        <div class="ipv4-heading container-lg">
+            <h2>IPv4 To Binary Converter</h2>
+        </div>
+        <div class="ipv4-description">
+            <p>
+                Learn how IPv4 addresses are converted from decimal to binary. 
+                Enter an IPv4 address and explore how each of its four octets is 
+                represented using 8 bits. Follow the step-by-step conversion using 
+                the powers of 2 to understand how binary addressing works in computer networks.
+            </p>
+        </div>
+        <form class="binary-converter" id="ipv4-form">
+        <div class="form-label">
+            <label for="ipv4Address">IPv4 Address</label>
+
+            <input type="text" name="ipv4Address" id="ipv4Address" placeholder="192.168.1.0" autocomplete="off" required>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="convert-btn">
+                Convert to Binary
+            </button>
+
+            <button type="reset" class="reset-btn">
+                Clear
+            </button>
+        </div>
+    </form>
+
+    <!-- Conversion Results -->
+    <div id="ipv4-results" aria-live="polite">
+
+        <!-- Step 1: Entered IPv4 Address -->
+        <div class="ipv4-result-heading">
+            <h3>IPv4 Conversion Results</h3>
+        </div>
+
+        <div id="ipv4-address-display"></div>
+
+        <!-- Step 2: Four Octet Breakdown -->
+        <div class="octet-section">
+            <h3>Step 1: IPv4 Octet Breakdown</h3>
+            <p>
+                An IPv4 address contains four decimal octets.
+                Each octet is represented by 8 binary bits.
+            </p>
+            <div id="octet-breakdown"></div>
+        </div>
+
+        <!-- Step 3: Base-2 Conversion Tables -->
+        <div class="binary-section">
+            <h3>Step 2: Decimal to Binary Conversion</h3>
+            <p>
+                Each octet is converted using the powers of 2:
+                128, 64, 32, 16, 8, 4, 2, and 1.
+            </p>
+            <div id="binary-tables"></div>
+        </div>
+
+        <!-- Step 4: Final Binary Address -->
+        <div class="binary-result-section">
+            <h3>Step 3: Final Binary IPv4 Address</h3>
+
+            <div id="final-binary-result"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- IPv6 Coversion Section -->
+    <section id="ipv6" class="ipv6-section">
+        <div class="ipv6-heading container-lg">
+            <h2>IPv6 To Binary Converter</h2>
+        </div>
+        <div class="ipv6-description">
+            <p>
+                Learn how IPv6 addresses are converted from hexadecimal
+                to binary. Enter an IPv6 address and explore how its
+                eight hextets are represented using 16 bits each.
+                Follow the step-by-step conversion to understand
+                how IPv6 addressing works in computer networks.
+            </p>
+        </div>
+
+        <form class="binary-converter" id="ipv6-form">
+        <div class="form-label">
+            <label for="ipv6Address">IPv6 Address</label>
+            <input type="text" name="ipv6Address" id="ipv6Address" placeholder="2001:0db8:85a3:0000:0000:8a2e:0370:7334" autocomplete="off" required>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="convert-btn">
+                Convert to Binary
+            </button>
+
+            <button type="reset" class="reset-btn">
+                Clear
+            </button>
+        </div>
+    </form>
+
+    <!-- Conversion Results -->
+    <div id="ipv6-results" aria-live="polite">
+
+        
+        <div class="ipv6-result-heading">
+            <h3>IPv6 Conversion Results</h3>
+        </div>
+
+        <div id="ipv6-address-display"></div>
+
+        <!-- Step 1: Hextet Breakdown -->
+        <div class="octet-section">
+            <h3>Step 1: IPv6 Octet Breakdown</h3>
+            <p>
+                An IPv6 address contains eight 16-bit hextets,
+                totaling 128 bits.
+            </p>
+            <div id="hextet-breakdown"></div>
+        </div>
+
+        <!-- Step 2: Conversion Tables -->
+        <div class="binary-section">
+            <h3>Step 2: Hexadecimal to Binary Conversion</h3>
+            <p>
+                Each hexadecimal digit represents four binary bits.
+                Every hextet contains four hexadecimal digits,
+                equivalent to 16 binary bits.
+            </p>
+            <div id="ipv6-binary-tables"></div>
+        </div>
+
+        <!-- Step 3: Final Binary Address -->
+        <div class="binary-result-section">
+            <h3>Step 3: Final Binary IPv6 Address</h3>
+
+            <div id="ipv6-final-binary-result"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- MAC Coversion Section -->
+    <section id="mac" class="mac-section">
+        <div class="mac-heading container-lg">
+            <h2>Mac To Binary Converter</h2>
+        </div>
+        <div class="mac-description">
+            <p>
+                Learn how MAC addresses are converted from hexadecimal
+                to binary. Enter a 48-bit MAC address and explore how
+                its six hexadecimal pairs are represented using 8 bits
+                each. Follow the step-by-step conversion and discover
+                how MAC addresses identify network interfaces.
+            </p>
+        </div>
+
+        <form class="binary-converter" id="mac-form">
+        <div class="form-label">
+            <label for="macAddress">Mac Address</label>
+            <input type="text" name="macAddress" id="macAddress" placeholder="00:1A:2B:3C:4D:5E" autocomplete="off" required>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="convert-btn">
+                Convert to Binary
+            </button>
+
+            <button type="reset" class="reset-btn">
+                Clear
+            </button>
+        </div>
+    </form>
+
+    <!-- Conversion Results -->
+    <div id="mac-results" aria-live="polite">
+
+        
+        <div class="mac-result-heading">
+            <h3>MAC Address Conversion Results</h3>
+        </div>
+
+        <div id="mac-address-display"></div>
+
+        <!-- Step 1: MAC Byte Breakdown -->
+        <div class="octet-section">
+            <h3>Step 1: MAC Address Byte Breakdown</h3>
+            <p>
+                A standard MAC-48 address contains six hexadecimal
+                pairs. Each pair represents 8 binary bits.
+            </p>
+            <div id="mac-byte-breakdown"></div>
+        </div>
+
+        <!-- Step 2: Conversion Tables -->
+        <div class="binary-section">
+            <h3>Step 2: Hexadecimal to Binary Conversion</h3>
+            <p>
+                Each hexadecimal digit represents four binary bits.
+                Two hexadecimal digits form one byte, equivalent
+                to 8 binary bits.
+            </p>
+            <div id="mac-binary-tables"></div>
+        </div>
+
+        <!-- Step 3: Final Binary Address -->
+        <div class="binary-result-section">
+            <h3>Step 3: Final Binary Mac Address</h3>
+            <div id="mac-final-binary-result"></div>
+        </div>
+
+        <!-- Step 4: MAC Address Structure -->
+        <div class="binary-section">
+            <h3>Step 4: MAC Address Structure</h3>
+            <p>
+                In the traditional MAC-48 format, the first three
+                bytes form the OUI (Organizationally Unique Identifier),
+                while the remaining three bytes form the
+                organization-assigned portion.
+            </p>
+            <div id="mac-structure"></div>
+        </div>
+    </div>
+    </section>
+
+    <footer class="footer">
+        
+        <div class="container-sm container-flex">
+            <div class="author">
+            <h5>Node405 | Created by Jason Magana</h5>
+            <p>An educational networking project.</p>
+            </div>
+
+        <div class="website-link">
+            <p>Check out my projects:
+                <a href="https://www.maganatechforce.com/" target="_blank" rel="noopener noreferrer">
+                    Magana Techforce
+                </a>
+            </p>
+        </div>
+        </div>
+    </footer>
+
+    <script src="/JS/script.js"></script>
+</body>
+</html>
