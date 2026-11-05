@@ -215,14 +215,18 @@ ipv6Form.addEventListener('submit', (e) => {
     for (let i = 0; i < hextets.length; i++) {
         const hextetNumber = i + 1;
         const hexadecimal = hextets[i].padStart(4, '0');
-        const binary = binaryHextets[i];
+        const binary = binaryHextets[i].match(/.{4}/g).join(' ');
 
         const hextetCard = `
             <div class="octet-card">
-                <h4>Hextet ${hextetNumber}</h4>
-                <p>Hex: ${hexadecimal}</p>
-                <p>Binary: ${binary}</p>
+            <h4>Hextet ${hextetNumber}</h4>
+            <p>Hex: ${hexadecimal.toUpperCase()}</p>
+
+            <div class="hextet-binary">
+                <span class="binary-label">Binary:</span>
+                <span class="binary-value">${binary}</span>
             </div>
+        </div>
         `;
 
         hextetBreakdown.innerHTML += hextetCard;
