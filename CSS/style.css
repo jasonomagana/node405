@@ -376,7 +376,7 @@ ul {
 
 .octet-card p:last-child {
     color: #67e8f9;
-    font-family: monospace;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
 }
 
@@ -407,7 +407,7 @@ ul {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
-    font-family: monospace;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .conversion-table-card th,
@@ -431,7 +431,7 @@ ul {
 .conversion-table-card p {
     margin-top: 1rem;
     color: #67e8f9;
-    font-family: monospace;
+    font-family: 'Montserrat', sans-serif;
     overflow-wrap: anywhere;
 }
 
@@ -444,7 +444,7 @@ ul {
     padding: 1.5rem;
     text-align: center;
     color: #67e8f9;
-    font-family: monospace;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.3rem;
     letter-spacing: 1px;
     overflow-wrap: anywhere;
@@ -509,7 +509,7 @@ ul {
     padding: 1.5rem;
     text-align: center;
     color: #67e8f9;
-    font-family: monospace;
+    font-family: 'Montserrat', sans-serif;
     overflow-wrap: anywhere;
 }
 
@@ -571,7 +571,7 @@ ul {
     padding: 1.5rem;
     text-align: center;
     color: #67e8f9;
-    font-family: monospace;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     overflow-wrap: anywhere;
 }
