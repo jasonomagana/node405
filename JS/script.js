@@ -29,6 +29,7 @@ const macBinaryTables = document.querySelector('#mac-binary-tables');
 const macFinalBinaryResult = document.querySelector('#mac-final-binary-result');
 const macStructure = document.querySelector('#mac-structure');
 
+// Open and close Hamburger Menu 
 let isMenuOpen = false;
 
 mobileMenuToggle.addEventListener('click', () => {
