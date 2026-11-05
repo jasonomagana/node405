@@ -304,9 +304,9 @@ ipv6Form.addEventListener('submit', (e) => {
     });
 });
 
- // MAC Address to Binary Converter
+    // MAC Address to Binary Converter
 
-macForm.addEventListener('submit', (e) => {
+    macForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const address = macAddress.value.trim();
@@ -351,36 +351,57 @@ macForm.addEventListener('submit', (e) => {
         macByteBreakdown.innerHTML += byteCard;
     }
 
-    // Step 2: Generate powers-of-two tables
-    const powersOfTwo = [128, 64, 32, 16, 8, 4, 2, 1];
+// Step 2: Generate 4-bit nibble conversion tables
+    const powersOfTwo = [8, 4, 2, 1];
 
     macBinaryTables.innerHTML = '';
 
     for (let i = 0; i < bytes.length; i++) {
         const byteNumber = i + 1;
         const hexadecimal = bytes[i].toUpperCase();
-        const binary = binaryBytes[i];
 
-        let powerCells = '';
-        let bitCells = '';
+        let nibbleRows = '';
+        let combinedBinary = '';
 
-        for (let j = 0; j < powersOfTwo.length; j++) {
-            powerCells += `<th>${powersOfTwo[j]}</th>`;
-            bitCells += `<td>${binary[j]}</td>`;
+        // Convert each hexadecimal digit into a 4-bit nibble
+        for (let j = 0; j < hexadecimal.length; j++) {
+            const hexDigit = hexadecimal[j];
+            const decimal = parseInt(hexDigit, 16);
+            const nibble = decimal.toString(2).padStart(4, '0');
+
+            combinedBinary += nibble;
+
+            nibbleRows += `
+                <tr>
+                    <th scope="row">${hexDigit}</th>
+                    <td>${nibble[0]}</td>
+                    <td>${nibble[1]}</td>
+                    <td>${nibble[2]}</td>
+                    <td>${nibble[3]}</td>
+                    <td>${nibble}</td>
+                </tr>
+            `;
         }
 
         const conversionTable = `
             <div class="conversion-table-card">
                 <h4>Byte ${byteNumber}: ${hexadecimal}</h4>
+                <p>Convert each hexadecimal digit into four binary bits:</p>
+
                 <table>
                     <thead>
-                        <tr>${powerCells}</tr>
+                        <tr>
+                            <th>Hex</th>
+                            ${powersOfTwo.map(power => `<th>${power}</th>`).join('')}
+                            <th>Binary</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr>${bitCells}</tr>
+                        ${nibbleRows}
                     </tbody>
                 </table>
-                <p>Binary Result: ${binary}</p>
+
+                <p>Binary Result: ${combinedBinary.match(/.{4}/g).join(' ')}</p>
             </div>
         `;
 
